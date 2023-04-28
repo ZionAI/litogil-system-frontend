@@ -1,0 +1,119 @@
+.container{
+    background-image: url('../../assets/Inicio_Fondo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-color: white;
+    height: 100vh;
+}
+
+.inputs_sesion{
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    border-color: #88afcc;
+    border: 2px solid #88afcc; /* Aplica un borde sólido de 2px de ancho con color gris claro */
+    outline: #88afcc;
+    margin-bottom: 15px;
+    width: 280px;
+    height: 30px;
+}
+
+.inputs_sesion:focus {
+    border: 3px solid; 
+    border-color: rgba(0, 117, 204, 1);
+    background-color: white; 
+    transition: border 0.4s ease;
+    transition: borer-color 0.4s ease;
+    transition: background-color 0.4s ease;
+}
+
+.inputs_sesion::-webkit-input-placeholder {
+    color: #88afcc;
+    padding-left: 10px;
+}
+
+.inputs_sesion:-ms-input-placeholder {  
+    color: #88afcc;
+    padding-left: 10px;
+}
+
+.sesion-text{
+    color: #0e67ab;
+    font-size: 14px;
+    font-weight: bold;
+}
+  
+.img_logo_lit{
+    height: auto;
+    padding-left: 6%;
+}
+
+.container-sesion-title{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: max-content;
+    margin: 0 auto;
+  }
+
+.title {
+    color: #0e67ab;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container-sesion{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: max-content;
+    margin: 3% 66%;
+    width: 100%;
+}
+
+.btn-sesion {
+    background-color: #0667ae;
+    color: white;
+    padding: 9px;
+    border: transparent;
+    border-radius: 4px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.container-forgot{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: max-content;
+    margin: 3% 66%;
+    width: 100%;
+}
+
+.forgotpass {
+    font-size: 11px;
+    color: #2270ae;
+    font-weight: lighter;
+    width: 100%;
+    text-decoration: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 10px;
+    margin-bottom: 11px;
+    margin-left: 10px;
+}

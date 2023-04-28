@@ -1,0 +1,58 @@
+.container{
+  background-image: url('../../assets/Inicio_Fondo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-color: white;
+  height: 100vh;
+}
+.welcome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.welcome-text{
+  color: #0e67ab;
+  font-size: 48px;
+}
+
+.img_logo_lit{
+  height: auto;
+  padding-left: 6%;
+}
+
+.welcome-buttons{
+  flex-direction: column;
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #2f7ab3;
+  font-size: 28px;
+}
+
+.transparent-button:hover {
+  color: #2f7ab3;
+  font-weight: bold;
+  transition: font-weight 0.3s ease;
+}
+
+.transparent-button-regis {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #2f7ab3;
+  font-size: 28px;
+  margin-left: 60px;
+}
+
+.transparent-button-regis:hover {
+  color: #2f7ab3;
+  font-weight: bold;
+  transition: font-weight 0.3s ease;
+}
