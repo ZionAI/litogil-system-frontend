@@ -16,7 +16,7 @@ export default function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="container_login">
       <div>
           <Link to="/">
             <img className="img_logo_lit" src={require('../../assets/logo_gil.jfif')} alt="logo_lit" />
