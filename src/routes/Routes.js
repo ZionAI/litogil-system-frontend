@@ -6,6 +6,8 @@ import Success from "../screens/resgister/Success";
 import Sesion from "../screens/sesion/Sesion";
 import Clientes from "../screens/clientes/Clientes";
 
+import FormExampleWithGrid from "../screens/orden_trabajo/form_post_orden_trabajo";
+
 const routes = [
   {
     path: "/",
@@ -43,6 +45,11 @@ const routes = [
     component: Clientes,
   },
   // Otras rutas
+  {
+    path: "/ordenes-trabajo/",
+    exact:true,
+    component: FormExampleWithGrid,
+  }
 ];
 
 export default routes;
