@@ -9,6 +9,6 @@ const api = axios.create({
   },
 });
 
-export const login = (email, password) => {
-  return api.post('/token', { email, password });
+export const login = (username, password) => {
+  return api.post('/token/', { username, password });
 };

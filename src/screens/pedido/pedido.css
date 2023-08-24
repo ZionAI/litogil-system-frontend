@@ -5,10 +5,9 @@ body {
 .container_pedidos {
     background-image: url('../../assets/Ingreso_Fondo_test.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 100vh;
+    background-size: 100% 100%; /* Cambiado a 'cover' para cubrir completamente el contenedor */
     width: 100%;
+    height: 100%;
 }
   
 .contain_pedidos {

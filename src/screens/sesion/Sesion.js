@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import './sesion.css'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
-import { Link } from 'react-router-dom';
-import { login } from '../../services/api'
+import { useNavigate, Link } from 'react-router-dom';
+import { login } from '../../services/api';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 export default function Registro () {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [password, setPassword] = useState('');
     const [passwordTouched, setPasswordTouched] = useState(false);
@@ -18,10 +20,31 @@ export default function Registro () {
     const isValidEmail = correo.trim() !== '';
       
     const handleLogin = () => {
-        login(correo, password).then(response => {
-        console.log(response.data);
-        })
-    };
+        login(correo, password).then(({ status, data }) => {
+            if (status === 200 && data.access) {
+                navigate('/home/');
+            } 
+            // Si hay otros códigos de estado que quieras manejar en el caso de éxito, puedes agregarlos aquí
+        }).catch(error => {
+            console.error("Error durante el login:", error);
+    
+            // Acceder al campo 'status' dentro del error
+            if (error.response.status === 401) {
+                toast.error('Usuario o Contraseña Incorrectos', {
+                    position: 'bottom-center',
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                });
+            } else {
+                // Manejar otros errores de la manera que necesites
+                toast.error('Ocurrió un error inesperado', {
+                    position: 'bottom-center',
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                });
+            }
+        });
+    };    
 
     function isEmailValid(email) {
         console.log()
@@ -45,7 +68,8 @@ export default function Registro () {
     const isEmailFieldValid = correoTouched && isEmailValid(correo) && isValidEmail;
 
     return(
-        <div className="container">
+        <div className="container_sesion">
+            <ToastContainer />
             <div>
                 <Link to="/">
                     <img className="img_logo_lit" src={require('../../assets/logo_gil.jfif')} alt="logo_lit" />
@@ -56,7 +80,7 @@ export default function Registro () {
                     <p class="title">Inicia sesión</p>
                     <div class="inputs">
                         <Input className="inputs_sesion" placeholder="Correo Empresarial" type="email" value={correo} onChange={handleCorreoChange}/>
-                        {correoTouched && !isEmailFieldValid && (<span className="error-message">Ingrese un correo valido</span>)}
+                        {/* {correoTouched && !isEmailFieldValid && (<span className="error-message">Ingrese un correo valido</span>)} */}
                         <Input className="inputs_sesion" placeholder="Contraseña" type="password" value={password} onChange={handlePasswordChange}/>
                         {passwordTouched && !isPasswordValid && <span className="error-message">Ingrese una contraseña</span>}
                     </div>
@@ -64,7 +88,7 @@ export default function Registro () {
                         <Link to="/" className="forgotpass">Olvide mi contraseña</Link>
                     </div>
                     <div class="container-sesion">
-                        <Button className="btn-sesion" title="Inicia sesión" disabled={!isFormValid} onClick={handleLogin}/>
+                        <Button className="btn-sesion" title="Inicia sesión" onClick={handleLogin}/>
                     </div>
                 </div>
             </div>

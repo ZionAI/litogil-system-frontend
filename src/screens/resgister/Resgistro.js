@@ -52,7 +52,7 @@ export default function Registro () {
 
 
     return(
-        <div className="container">
+        <div className="container_registro">
             <div>
                 <Link to="/">
                     <img className="img_logo_lit" src={require('../../assets/logo_gil.jfif')} alt="logo_lit" />
