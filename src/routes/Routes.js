@@ -46,7 +46,7 @@ const routes = [
   },
   // Otras rutas
   {
-    path: "/ordenes-trabajo/",
+    path: "/home/ordenes-trabajo/",
     exact:true,
     component: FormExampleWithGrid,
   }

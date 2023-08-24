@@ -370,20 +370,24 @@ export default function Pedido() {
   <div className="container_pedidos">
       <div className='contain_pedidos'>
         <div className='item1'>
-          <Link to="/">
+          <Link to="/home">
             <img className="img_pedidos_lit" src={require('../../assets/Logo-LG-2.png')} alt="logo_lit_home" />
           </Link>
         </div>
         <div className='item4'>
           <div className='contain_row'>
             <h4 className='text'>Juan Velazquez</h4>
-            <RiLogoutBoxRFill className='icon_logout'/>
+            <Link to="/">
+              <RiLogoutBoxRFill className='icon_logout'/>
+            </Link>
           </div>
         </div>
         <div className='item3'>
           <div className='contain_column'>
             <h2 className='text_title'>Módulo</h2>
-            <Button className="btn_module_pedido" title="BOM (Bill of Materials)" />
+            <Link to="/home">
+              <Button className="btn_module_pedido" title="Home" />
+            </Link>
           </div>
         </div>
         {showElement1 && 

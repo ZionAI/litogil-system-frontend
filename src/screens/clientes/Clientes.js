@@ -33,9 +33,11 @@ export default function Clientes() {
 
     const [oneClienteData, setOneClienteData] = useState(false)
 
+    //Edit
+    const [showEditarCliente, setShowEditarCliente] = useState(false)
+
     //GET Clientes
     const [clientesFromBack, setClientesFromBack] = useState([])
-
     //GET Cliente
     const [cliente1FromBack, setCliente1FromBack] = useState([])
     //GET Producto
@@ -57,6 +59,7 @@ export default function Clientes() {
     const [phone_number, setPhoneNumber] = useState('')
     const [email, setEmail] = useState('')
     const [alias, setAlias] = useState('')
+    const [nombreCliente, setNombreCliente] = useState('')
     const [desProduct, setDesProduct] = useState('')
     const [salesNumber, setSalesNumber] = useState('')
     const [nameComponent, setNameComponent] = useState('')
@@ -85,6 +88,13 @@ export default function Clientes() {
     const handleDropdownClick = () => {
         setShowDropdown(!showDropdown);
       };
+
+    const handleEditarCliente = () => {
+        setShowAddProductos(false)
+        setShowAddComponents(false)
+        setShowAddCliente(false)
+        setShowEditarCliente(prevState => !prevState);
+    }
 
     const handleAddCliente = () => {
         setShowAddProductos(false)
@@ -194,6 +204,11 @@ export default function Clientes() {
         const value = event.target.value;
         setNameProduct(value);
     };
+
+    const handleNombreCliente = (event) => {
+        const value = event.target.value;
+        setNombreCliente(value);
+    }
 
     const handleAlias = (event) => {
         const value = event.target.value;
@@ -325,9 +340,11 @@ export default function Clientes() {
     const handleSubmitAddClient = () => {
         const data = {
             nombre_cliente: alias,
+            alias: alias,
             clave_cliente:'7451',
             es_nacional: esNacional,
             razon_social: razonSocial,
+            ein: nif,
             rfc: rfc,
             calle: street,
             no_ext: noextern,
@@ -367,6 +384,125 @@ export default function Clientes() {
            toast.error('Hubo un problema al añadir al cliente');
          });
       };
+    
+    const originalData = {
+        ...cliente1FromBack
+    };
+
+    const handleSubmitEditClient = () => {
+
+        const updatedFields = {};
+
+        if (alias === '') {
+            updatedFields.alias = originalData.alias;
+        } else if (alias !== originalData.alias) {
+          updatedFields.alias = alias;
+        }
+
+        if (nombreCliente === '') {
+            updatedFields.nombre_cliente = originalData.nombre_cliente;
+        } else if (nombreCliente !== originalData.nombre_cliente) {
+          updatedFields.nombre_cliente = nombreCliente;
+        }
+
+        if (razonSocial === '') {
+            updatedFields.razon_social = originalData.razon_social;
+        } else if  (razonSocial !== originalData.razon_social) {
+            updatedFields.razon_social = razonSocial;
+        }
+
+        if (nif === '') {
+            updatedFields.ein = originalData.ein;
+        } else if (nif !== originalData.ein) {
+            updatedFields.ein = nif;
+        }
+
+        if (rfc === '') {
+            updatedFields.rfc = originalData.rfc;
+        } else if (rfc !== originalData.rfc) {
+            updatedFields.rfc = rfc;
+        }
+
+        if (street === '') {
+            updatedFields.calle = originalData.calle;
+        } else if (street !== originalData.calle) {
+            updatedFields.calle = street;
+        }
+
+        if (noextern === '') {
+            updatedFields.no_ext = originalData.no_ext;
+        } else if (noextern !== originalData.no_ext) {
+            updatedFields.no_ext = noextern;
+        }
+
+        if (noint === '') {
+            updatedFields.no_int = originalData.no_int;
+        } else if (noint !== originalData.no_int) {
+            updatedFields.no_int = noint;
+        }
+
+        if (colony === '') {
+            updatedFields.colonia = originalData.colonia;
+        } else if (colony !== originalData.colonia) {
+            updatedFields.colonia = colony;
+        }
+
+        if (cp === '') {
+            updatedFields.cp_zip = originalData.cp_zip;
+        } else if (cp !== originalData.cp_zip) {
+            updatedFields.cp_zip = cp;
+        }
+
+        if (city === '') {
+            updatedFields.ciudad = originalData.ciudad;
+        } else if (city !== originalData.ciudad) {
+            updatedFields.ciudad = city;
+        }
+
+        if (district === '') {
+            updatedFields.distrito = originalData.distrito;
+        } else if (district !== originalData.distrito) {
+            updatedFields.distrito = district;
+        }
+
+        if (phone_number === '') {
+            updatedFields.tel = originalData.tel;
+        } else if (phone_number !== originalData.tel) {
+            updatedFields.tel = phone_number;
+        }
+
+        if (email === '') {
+            updatedFields.mail = originalData.mail;
+        } else if (email !== originalData.mail) {
+            updatedFields.mail = email;
+        }
+
+        console.log("boolean", esNacional)
+
+        if (esNacional === false) {
+            updatedFields.es_nacional = originalData.es_nacional;
+        } else if (esNacional !== originalData.es_nacional) {
+            updatedFields.es_nacional = esNacional;
+        }
+
+        const data = {
+            ...updatedFields,
+            clave_cliente:'7451',
+        };
+        
+        axios.patch(`http://161.35.48.220:8000/api/v1/clientes/${selectedClient.id}`, data)
+            .then(response => {
+            // Manejar la respuesta de éxito si es necesario
+            console.log(response.data);
+            toast.success('Se ha actualizado el cliente con éxito');
+            setShowEditarCliente(false)
+        })
+            .catch(error => {
+            // Manejar el error si la solicitud falla
+            console.error(error);
+            toast.error('Hubo un problema al añadir al cliente');
+        });
+    };
     
     const handleSubmitAddProducto = () => {
         const data = {
@@ -441,28 +577,32 @@ export default function Clientes() {
         };
       }, [ref]);
 
-    console.log("clientes",clientesFromBack)
-    console.log("selectedclientes",selectedClient)
+      console.log("alias",cliente1FromBack.alias)
+      console.log("data",cliente1FromBack)
 
     return (
         <div className="container_clientes">
             <ToastContainer />
             <div className='contain_clientes'>
                 <div className='item1_clientes'>
-                <Link to="/">
+                <Link to="/home">
                     <img className="img_clientes_lit" src={require('../../assets/Logo-LG-2.png')} alt="logo_lit_home" />
                 </Link>
                 </div>
                 <div className='item4_clientes'>
                 <div className='contain_row'>
                     <h4 className='text_clientes'>Juan Velazquez</h4>
-                    <RiLogoutBoxRFill className='icon_logout'/>
+                    <Link to="/">
+                        <RiLogoutBoxRFill className='icon_logout_clientes'/>
+                    </Link>
                 </div>
                 </div>
                 <div className='item3_clientes'>
                 <div className='contain_column'>
-                    <h2 className='text_title'>Módulo</h2>
-                    <Button className="btn_module_clientes" title="BOM (Bill of Materials)" />
+                    <h3 className='text_title_clientes'>Módulo</h3>
+                    <Link to="/home">
+                        <Button className="btn_module_clientes" title="Home" />
+                    </Link>
                 </div>
                 </div> 
                 <div className='item2_clientes'>
@@ -564,6 +704,11 @@ export default function Clientes() {
                             </div>
                         </div>
                         }
+                        { clienteElegido &&
+                        <div style={{ position: 'absolute', top: '90%', left: '36%' }}>
+                            <Button className='btn_editar' title="Editar" onClick={handleEditarCliente}/>
+                        </div>
+                        }
                         <div style={{ position: 'absolute', top: '90%', left: '43%' }}>
                             <Button className='btn_agregar' title="Agregar" onClick={handleAddCliente}/>
                         </div>
@@ -637,6 +782,48 @@ export default function Clientes() {
                     </div>
                     }
                 </div>
+                { showEditarCliente &&
+                <div className='item7_clientes'>
+                    <div>
+                        <div className='contain_row'>
+                            <p className='title_item7_clientes'>EDITAR CLIENTE</p>
+                            <button className='btn_checkpedidos_clientesadd' onClick={handleSubmitEditClient}>
+                                <BsCheckLg className='icon_checkpedidos'/>
+                            </button>
+                        </div>
+                        <div className='contain_column' style={{justifyContent:"center"}}>
+                            <div className='contain_column' style={{marginLeft:'20%'}}>
+                                <p className='title_addnew_cliente'>INFORMACIÓN FISCAL</p>
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.alias} type="text" value={alias} onChange={handleAlias} />
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.nombre_cliente} type="text" value={nombreCliente} onChange={handleNombreCliente} />
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.razon_social} type="text" value={razonSocial} onChange={handleRazonSocial} />
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.ein} type="text" value={nif} onChange={handleNIF} />
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.rfc} type="text" value={rfc} onChange={handleRFC} />
+                                <p className='title_addnew_cliente' style={{marginTop:'5%'}}>DIRECCIÓN</p>
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.calle} type="text" value={street} onChange={handleStreet} />
+                                <div className='contain_row'>
+                                    <Input className="inputs_clientes_2" style={{marginRight:'20px'}} placeholder={cliente1FromBack.no_ext} type="text" value={noextern} onChange={handleNoextern} />
+                                    <Input className="inputs_clientes_2" placeholder={cliente1FromBack.no_int} type="text" value={noint} onChange={handleNoint} />
+                                </div>
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.colonia} type="text" value={colony} onChange={handleColony} />
+                                <div className='contain_row'>
+                                    <Input className="inputs_clientes_2" style={{marginRight:'20px'}} placeholder={cliente1FromBack.cp_zip} type="text" value={cp} onChange={handleCP} />
+                                    <Input className="inputs_clientes_2" placeholder={cliente1FromBack.distrito} type="text" value={district} onChange={handleDistrict} />
+                                </div>
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.estado} type="text" value={state} onChange={handleState} />
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.ciudad} type="text" value={city} onChange={handleCity} />
+                                <p className='title_addnew_cliente' style={{marginTop:'5%'}}>CONTACTO</p>
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.tel} type="number" value={phone_number} onChange={handlePhoneNumber} />
+                                <Input className="inputs_clientes" placeholder={cliente1FromBack.mail} type="email" value={email} onChange={handleEmail} />
+                                <div className='contain_row'>
+                                    <input type="checkbox" style={{marginRight:'10px', marginTop:'10px'}}  checked={esNacional} onChange={handleEsNacional}/>
+                                    <p className='title_addnew_cliente'>Es Nacional</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                }
                 { showAddCliente &&
                 <div className='item7_clientes'>
                     <div>
@@ -650,7 +837,8 @@ export default function Clientes() {
                             <div className='contain_column' style={{marginLeft:'20%'}}>
                                 <p className='title_addnew_cliente'>INFORMACIÓN FISCAL</p>
                                 <Input className="inputs_clientes" placeholder="Alias" type="text" value={alias} onChange={handleAlias} />
-                                <Input className="inputs_clientes" placeholder="Nombre o razon social" type="text" value={razonSocial} onChange={handleRazonSocial} />
+                                <Input className="inputs_clientes" placeholder="Nombre" type="text" value={nombreCliente} onChange={handleNombreCliente} />
+                                <Input className="inputs_clientes" placeholder="Razon social" type="text" value={razonSocial} onChange={handleRazonSocial} />
                                 <Input className="inputs_clientes" placeholder="NIF" type="text" value={nif} onChange={handleNIF} />
                                 <Input className="inputs_clientes" placeholder="RFC" type="text" value={rfc} onChange={handleRFC} />
                                 <p className='title_addnew_cliente' style={{marginTop:'5%'}}>DIRECCIÓN</p>
