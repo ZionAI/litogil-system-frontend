@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
 import { BsCheckLg } from 'react-icons/bs';
-import { AiOutlinePlus } from 'react-icons/ai';
+// import { AiOutlinePlus } from 'react-icons/ai';
 import Button from '../../components/Button';
 import './clientes.css';
 import Input from '../../components/Input';
