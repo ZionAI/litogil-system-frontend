@@ -29,6 +29,10 @@ export default function Home() {
     navigate('/home/clientes/');
   }
 
+  function handleClickOrdenes () {
+    navigate('/home/ordenes-trabajo/')
+  }
+
   function handleClick() {
     setShowElement(!showElement);
     setBackgroundColor(false);
@@ -167,7 +171,8 @@ export default function Home() {
         <div className='item6'>
           <div className='contain_column_btn_home'>
             <Button className="btn_module_details_home" title="Clientes" onClick={handleClickClientes}/>
-            <Button className="btn_module_details_home" title="Borradores"/>
+            {/* <Button className="btn_module_details_home" title="Borradores"/> */}
+            <Button className="btn_module_details_home" title="Ordenes de trabajo" onClick={handleClickOrdenes}/>
             <Button className="btn_module_details_home" title="Solicitudes pendientes"/>
             <Button className="btn_module_details_home" title="Historial de pedidos"/>
             <Button className="btn_module_details_home" title="Modificación de Costos"/>

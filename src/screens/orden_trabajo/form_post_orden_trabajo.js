@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Button, MenuItem, FormControl, Grid } from "@mui/material";
+import './orden_trabajo.css';
 
 // Services
 import { lista_clientes } from "../../services/clientes";
@@ -66,7 +67,7 @@ const FormExampleWithGrid = () => {
   };
 
   return (
-    <div>
+    <div className="image_bg_orden">
       <h2>Nueva Orden de Trabajo</h2>
       <FormControl fullWidth onSubmit={handleSubmit}>
         <Grid container spacing={2}>
