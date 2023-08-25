@@ -6,7 +6,7 @@ import Success from "../screens/resgister/Success";
 import Sesion from "../screens/sesion/Sesion";
 import Clientes from "../screens/clientes/Clientes";
 
-import FormExampleWithGrid from "../screens/orden_trabajo/form_post_orden_trabajo";
+import OrdenTrabajo from "../screens/orden_trabajo/o_orden_trabajo";
 
 const routes = [
   {
@@ -48,7 +48,7 @@ const routes = [
   {
     path: "/home/ordenes-trabajo/",
     exact:true,
-    component: FormExampleWithGrid,
+    component: OrdenTrabajo,
   }
 ];
 

@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Button, MenuItem, FormControl, Grid } from "@mui/material";
-import './orden_trabajo.css';
+import "./orden_trabajo.css";
 
 // Services
 import { lista_clientes } from "../../services/clientes";
 import { lista_productos } from "../../services/productos";
-import { status_orden_trabajo } from "../../services/orden-trabajo";
+import {
+  status_orden_trabajo,
+  agregar_orden_trabajo,
+} from "../../services/orden-trabajo";
 
-const FormExampleWithGrid = () => {
+const FormOrdenTrabajo = () => {
   const [formData, setFormData] = useState({
     clientes: [],
-    cliente: "",
-    producto: "",
     productos: [],
     status: [],
+    id_cotizacion: 1,
+    producto: "",
+    status_seleccionado: "",
     id_orden_compra: 1,
     cantidad: 1,
-    id_cotizacion: 1,
-    status_seleccionado: 1,
+    cliente: "",
   });
 
   const handleInputChange = (event) => {
@@ -57,13 +60,21 @@ const FormExampleWithGrid = () => {
           productos: r.data,
         }));
       });
-      console.log(formData.productos);
     }
   }, [formData.cliente]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted:", formData);
+    let payload = {
+      id_orden_compra: formData.id_orden_compra,
+      cantidad: formData.cantidad,
+      cliente: formData.cliente,
+      producto: formData.producto,
+      status: formData.status_seleccionado
+    }
+    agregar_orden_trabajo(payload).then((r)=>{
+      alert("orden de tabajo guardada exitosamente")
+    })
   };
 
   return (
@@ -79,7 +90,7 @@ const FormExampleWithGrid = () => {
               label="Cliente"
               name="cliente"
               required
-			  fullWidth
+              fullWidth
             >
               {formData.clientes.map((option) => (
                 <MenuItem key={option.id_cliente} value={option.id_cliente}>
@@ -97,7 +108,7 @@ const FormExampleWithGrid = () => {
               label="Producto"
               name="producto"
               required
-			  fullWidth
+              fullWidth
             >
               {formData.productos.map((option) => (
                 <MenuItem key={option.id_producto} value={option.id_producto}>
@@ -130,21 +141,20 @@ const FormExampleWithGrid = () => {
           <Grid item xs={4}>
             <TextField
               label="Status"
-              name="status"
+              name="status_seleccionado"
               value={formData.status_seleccionado}
               onChange={handleInputChange}
               select
               required
-			  style={{textTransform: 'capitalize'}}
-			  fullWidth
+              style={{ textTransform: "capitalize" }}
+              fullWidth
             >
               {formData.status.map((option) => (
-                <MenuItem 
-					key={option.clave} 
-					value={option.id}
-					style={{textTransform: 'capitalize'}}
-					
-				>
+                <MenuItem
+                  key={option.clave}
+                  value={option.id}
+                  style={{ textTransform: "capitalize" }}
+                >
                   {option.nombre}
                 </MenuItem>
               ))}
@@ -152,9 +162,14 @@ const FormExampleWithGrid = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary" fullWidth>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              onClick={handleSubmit}
+              fullWidth
+            >
               Submit
-			  
             </Button>
           </Grid>
         </Grid>
@@ -163,4 +178,4 @@ const FormExampleWithGrid = () => {
   );
 };
 
-export default FormExampleWithGrid;
+export default FormOrdenTrabajo;
