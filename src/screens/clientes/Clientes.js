@@ -99,18 +99,21 @@ export default function Clientes() {
     const handleAddCliente = () => {
         setShowAddProductos(false)
         setShowAddComponents(false)
+        setShowEditarCliente(false)
         setShowAddCliente(prevState => !prevState);
     }
 
     const handleAddProductos = () => {
         setShowAddCliente(false)
         setShowAddComponents(false)
+        setShowEditarCliente(false)
         setShowAddProductos(prevState => !prevState);
     }
 
     const handleAddComponents = () => {
         setShowAddCliente(false)
         setShowAddProductos(false)
+        setShowEditarCliente(false)
         setShowAddComponents(prevState => !prevState);
     }
 
