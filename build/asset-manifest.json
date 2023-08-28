@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.7d62d4e0.css",
-    "main.js": "/static/js/main.1678e372.js",
-    "static/js/787.2ad85d9f.chunk.js": "/static/js/787.2ad85d9f.chunk.js",
-    "static/media/Ingreso_Fondo_test.png": "/static/media/Ingreso_Fondo_test.881837b5b56282a1e12c.png",
-    "static/media/Inicio_Fondo.png": "/static/media/Inicio_Fondo.bc54e2bba4050b50b285.png",
-    "static/media/Logo-LG-2.png": "/static/media/Logo-LG-2.c8165a31c2abb09d8d94.png",
-    "static/media/logo_mattel.png": "/static/media/logo_mattel.fec639414a9bcf05a20f.png",
-    "static/media/PoweredByZion.png": "/static/media/PoweredByZion.782a9d472a0f9f543779.png",
-    "static/media/logo_gil.jfif": "/static/media/logo_gil.ead981b982dfeb50486b.jfif",
-    "index.html": "/index.html",
-    "main.7d62d4e0.css.map": "/static/css/main.7d62d4e0.css.map",
-    "main.1678e372.js.map": "/static/js/main.1678e372.js.map",
-    "787.2ad85d9f.chunk.js.map": "/static/js/787.2ad85d9f.chunk.js.map"
+    "main.css": "/ZionAI/litogil-system-frontend/static/css/main.dde93711.css",
+    "main.js": "/ZionAI/litogil-system-frontend/static/js/main.d1e822f7.js",
+    "static/js/787.2ad85d9f.chunk.js": "/ZionAI/litogil-system-frontend/static/js/787.2ad85d9f.chunk.js",
+    "static/media/Ingreso_Fondo_test.png": "/ZionAI/litogil-system-frontend/static/media/Ingreso_Fondo_test.881837b5b56282a1e12c.png",
+    "static/media/Inicio_Fondo.png": "/ZionAI/litogil-system-frontend/static/media/Inicio_Fondo.bc54e2bba4050b50b285.png",
+    "static/media/Logo-LG-2.png": "/ZionAI/litogil-system-frontend/static/media/Logo-LG-2.c8165a31c2abb09d8d94.png",
+    "static/media/logo_mattel.png": "/ZionAI/litogil-system-frontend/static/media/logo_mattel.fec639414a9bcf05a20f.png",
+    "static/media/PoweredByZion.png": "/ZionAI/litogil-system-frontend/static/media/PoweredByZion.782a9d472a0f9f543779.png",
+    "static/media/logo_gil.jfif": "/ZionAI/litogil-system-frontend/static/media/logo_gil.ead981b982dfeb50486b.jfif",
+    "index.html": "/ZionAI/litogil-system-frontend/index.html",
+    "main.dde93711.css.map": "/ZionAI/litogil-system-frontend/static/css/main.dde93711.css.map",
+    "main.d1e822f7.js.map": "/ZionAI/litogil-system-frontend/static/js/main.d1e822f7.js.map",
+    "787.2ad85d9f.chunk.js.map": "/ZionAI/litogil-system-frontend/static/js/787.2ad85d9f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d62d4e0.css",
-    "static/js/main.1678e372.js"
+    "static/css/main.dde93711.css",
+    "static/js/main.d1e822f7.js"
   ]
 }

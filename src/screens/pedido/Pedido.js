@@ -385,9 +385,7 @@ export default function Pedido() {
         <div className='item3'>
           <div className='contain_column'>
             <h2 className='text_title'>Módulo</h2>
-            <Link to="/home">
-              <Button className="btn_module_pedido" title="Home" />
-            </Link>
+              <Button className="btn_module_pedido" title="BOM (Bill of Materials)" />
           </div>
         </div>
         {showElement1 && 
@@ -765,7 +763,7 @@ export default function Pedido() {
           <img className="img_zion_pedidos" src={require('../../assets/PoweredByZion.png')} alt="logo_zion" />
         </div>
         <div className='item6'>
-          <div className='contain_column_btn'>
+          <div className='contain_column_btn_pedidos'>
             <Button className="btn_module_details" title="Clientes"/>
             <Button className="btn_module_details" title="Borradores"/>
             <Button className="btn_module_details" title="Solicitudes pendientes"/>
