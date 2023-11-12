@@ -47,7 +47,6 @@ export default function Registro () {
     };    
 
     function isEmailValid(email) {
-        console.log()
         // Validating email using regular expression
         const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return pattern.test(email);
@@ -70,13 +69,13 @@ export default function Registro () {
     return(
         <div className="container_sesion">
             <ToastContainer />
-            <div>
+            <div className='container_image'>
                 <Link to="/">
-                    <img className="img_logo_lit" src={require('../../assets/logo_gil.jfif')} alt="logo_lit" />
+                    <img className="img_logo_lit" src={require('../../assets/logo_lito_noBackground.png')} alt="logo_lit" />
                 </Link>
             </div>
             <div class="wrapper">
-                <div class="container-sesion-title">
+                <div class="container_sesion_title">
                     <p class="title">Inicia sesión</p>
                     <div class="inputs">
                         <Input className="inputs_sesion" placeholder="Correo Empresarial" type="email" value={correo} onChange={handleCorreoChange}/>
@@ -84,11 +83,11 @@ export default function Registro () {
                         <Input className="inputs_sesion" placeholder="Contraseña" type="password" value={password} onChange={handlePasswordChange}/>
                         {passwordTouched && !isPasswordValid && <span className="error-message">Ingrese una contraseña</span>}
                     </div>
-                    <div class="container-forgot">
+                    <div class="container_forgot">
                         <Link to="/" className="forgotpass">Olvide mi contraseña</Link>
                     </div>
-                    <div class="container-sesion">
-                        <Button className="btn-sesion" title="Inicia sesión" onClick={handleLogin}/>
+                    <div class="container_sesion">
+                        <Button className="btn_sesion" title="Inicia sesión" onClick={handleLogin}/>
                     </div>
                 </div>
             </div>

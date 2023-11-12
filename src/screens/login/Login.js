@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import Button from '../../components/Button';
@@ -31,10 +31,10 @@ export default function Login() {
           </Link>
       </div>
       <div className="welcome">
-        <h1 className="welcome-text">Bienvenido</h1>
-        <div>
-          <Button className="transparent-button" title="Inicia sesión" onClick={handleLoginClick}/>
-          <Button className="transparent-button-regis" title="Registro" onClick={handleRegistroClick}/>
+        <h1 className="welcome_text">Bienvenido</h1>
+        <div className='container_button'>
+          <Button className="transparent_button" title="Inicia sesión" onClick={handleLoginClick}/>
+          <Button className="transparent_button_regis" title="Registro" onClick={handleRegistroClick}/>
         </div>
       </div>
     </div>

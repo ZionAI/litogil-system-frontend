@@ -5,54 +5,59 @@
   background-size:cover;
   background-color: white;
   height: 100vh;
-}
-.welcome{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  flex-direction: column;
+
+  & .img_logo_lit{
+    height: auto;
+    padding-left: 6%;
+  }
+
+  & .welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    & .welcome_text{
+      color: #0e67ab;
+      font-size: 48px;
+    }
+
+
+    & .transparent_button,
+    & .transparent_button_regis {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #2f7ab3;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      font-size: 28px;
+      
+      & :hover {
+        color: #2f7ab3;
+        font-weight: bold;
+        transition: font-weight 0.3s ease;
+      }
+    }
+  }
 }
 
-.welcome-text{
-  color: #0e67ab;
-  font-size: 48px;
-}
+@media (max-width: 767px) {
+  .container_login{
+    background-image: url('../../assets/Ingreso_Fondo_Mobile.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    & .welcome_text{
+      margin-bottom: 5rem;
+    }
 
-.img_logo_lit{
-  height: auto;
-  padding-left: 6%;
-}
-
-.welcome-buttons{
-  flex-direction: column;
-}
-
-.transparent-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #2f7ab3;
-  font-size: 28px;
-}
-
-.transparent-button:hover {
-  color: #2f7ab3;
-  font-weight: bold;
-  transition: font-weight 0.3s ease;
-}
-
-.transparent-button-regis {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #2f7ab3;
-  font-size: 28px;
-  margin-left: 60px;
-}
-
-.transparent-button-regis:hover {
-  color: #2f7ab3;
-  font-weight: bold;
-  transition: font-weight 0.3s ease;
+    & .container_button{
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
 }

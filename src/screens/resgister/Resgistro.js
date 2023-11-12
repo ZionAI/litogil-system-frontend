@@ -53,24 +53,24 @@ export default function Registro () {
 
     return(
         <div className="container_registro">
-            <div>
+            <div className='container_image'>
                 <Link to="/">
-                    <img className="img_logo_lit" src={require('../../assets/logo_gil.jfif')} alt="logo_lit" />
+                    <img className="img_logo_lit" src={require('../../assets/logo_lito_noBackground.png')} alt="logo_lit" />
                 </Link>
             </div>
             <div className="wrapper">
-                <div className="container-register">
+                <div className="container_register">
                     <p className="title">Registro</p>
                     <div className="inputs">
                         <Input className="inputs_registro" placeholder="Nombre" type="text" value={nombre} onChange={handleNombreChange} />
-                        {nombreTouched && !isNameValid && <span className="error-message">Ingrese un nombre</span>}
+                        {nombreTouched && !isNameValid && <span className="error_message">Ingrese un nombre</span>}
                         <Input className="inputs_registro" placeholder="Apellido" type="text" value={apellido} onChange={handleApellidoChange} />
-                        {apellidoTouched && !isLastNameValid && <span className="error-message">Ingrese un apellido</span>}
+                        {apellidoTouched && !isLastNameValid && <span className="error_message">Ingrese un apellido</span>}
                         <Input className="inputs_registro" placeholder="Correo Empresarial" type="email" value={correo} onChange={handleCorreoChange} />
-                        {correoTouched && !isEmailFieldValid && (<span className="error-message">Ingrese un correo valido</span>)}
+                        {correoTouched && !isEmailFieldValid && (<span className="error_message">Ingrese un correo valido</span>)}
                     </div>
-                    <div className="container-button">
-                        <Button className="btn-resgister" title="Registro" onClick={handleSuccessClick} disabled={!isFormValid}  />
+                    <div className="container_button">
+                        <Button className="btn_register" title="Registro" onClick={handleSuccessClick} disabled={!isFormValid}  />
                     </div>
                 </div>
             </div>
