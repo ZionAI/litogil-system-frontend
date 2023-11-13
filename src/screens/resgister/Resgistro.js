@@ -3,6 +3,7 @@ import './registro.css'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import { Link, useNavigate } from 'react-router-dom';
+import Header from '../../components/Header';
 
 export default function Registro () {
 
@@ -53,11 +54,7 @@ export default function Registro () {
 
     return(
         <div className="container_registro">
-            <div className='container_image'>
-                <Link to="/">
-                    <img className="img_logo_lit" src={require('../../assets/logo_lito_noBackground.png')} alt="logo_lit" />
-                </Link>
-            </div>
+            <Header redirectLink={'/'} />
             <div className="wrapper">
                 <div className="container_register">
                     <p className="title">Registro</p>

@@ -6,11 +6,6 @@
   background-color: white;
   height: 100vh;
 
-  & .img_logo_lit{
-    height: auto;
-    padding-left: 6%;
-  }
-
   & .welcome{
     display: flex;
     justify-content: center;

@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 2.5rem;
+
+    & .img_logo_lit{
+        width: 50%;
+        height: auto;
+        padding-left: 6%;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        align-items: center;
+        justify-content: center;
+        & a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            & .img_logo_lit{
+                width: 60%;
+                height: auto;
+            }
+        }
+    }
+  }

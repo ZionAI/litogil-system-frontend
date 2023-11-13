@@ -2,8 +2,9 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import Button from '../../components/Button';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
+import Header from '../../components/Header';
 
 export default function Login() {
 
@@ -25,11 +26,7 @@ export default function Login() {
   return (
     <div className="container_login">
       <ToastContainer />
-      <div>
-          <Link to="/">
-            <img className="img_logo_lit" src={require('../../assets/logo_gil.jfif')} alt="logo_lit" />
-          </Link>
-      </div>
+      <Header redirectLink={'/'} />
       <div className="welcome">
         <h1 className="welcome_text">Bienvenido</h1>
         <div className='container_button'>
