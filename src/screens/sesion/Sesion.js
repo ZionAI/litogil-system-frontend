@@ -6,6 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../../services/api';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+import Header from '../../components/Header';
 
 export default function Registro () {
 
@@ -69,11 +70,7 @@ export default function Registro () {
     return(
         <div className="container_sesion">
             <ToastContainer />
-            <div className='container_image'>
-                <Link to="/">
-                    <img className="img_logo_lit" src={require('../../assets/logo_lito_noBackground.png')} alt="logo_lit" />
-                </Link>
-            </div>
+            <Header redirectLink={'/'} />
             <div class="wrapper">
                 <div class="container_sesion_title">
                     <p class="title">Inicia sesión</p>

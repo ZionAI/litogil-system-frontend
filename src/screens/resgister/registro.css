@@ -6,20 +6,6 @@
     background-color: white;
     height: 100vh;
 
-    & .container_image {
-        width: 100%;
-        padding: 2.5rem;
-        display: flex;
-        align-items: start;
-        justify-content: start;
-
-        & .img_logo_lit{
-            width: 60%;
-            height: auto;
-            padding-left: 6%;
-        }
-    }
-
     & .wrapper {
         display: flex;
         justify-content: center;
@@ -106,26 +92,6 @@
 @media (max-width: 767px) {
     .container_registro {
         background-image: url('../../assets/Inicio_Fondo_Mobile.png');
-        
-        & .container_image {
-            align-items: center;
-            justify-content: center;
-            height: 20%;
-
-            & a {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                
-                & .img_logo_lit{
-                    width: 60%;
-                    height: auto;
-                    padding-left: 6%;
-                }
-            }
-            
-        }
 
         & .wrapper {
             height: 60%;
