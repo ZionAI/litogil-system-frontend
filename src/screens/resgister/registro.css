@@ -87,6 +87,25 @@
             }
         }
     }
+
+    & .wrap-success {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+
+       & .success-text {
+        color: #0e67ab;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+       }
+       & .text-normal {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        text-align: center;
+       }
+    }
 }
 
 @media (max-width: 767px) {
