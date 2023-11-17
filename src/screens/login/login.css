@@ -1,58 +1,56 @@
-.container_login{
-  background-image: url('../../assets/Inicio_Fondo.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+.login {
   background-color: white;
+  width: 100vw;
   height: 100vh;
 
-  & .welcome{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
+  & .bg_special {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/Inicio_Fondo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
 
-    & .welcome_text{
-      color: #0e67ab;
-      font-size: 48px;
-    }
-
-
-    & .transparent_button,
-    & .transparent_button_regis {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      color: #2f7ab3;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      font-size: 28px;
-      
-      & :hover {
-        color: #2f7ab3;
-        font-weight: bold;
-        transition: font-weight 0.3s ease;
+    & .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      & h2 {
+          color: #2f7ab3;;
+          font-size: 3rem;
+          font-weight: bold;
+      }
+  
+      & .button_container {
+        display: flex;
+        flex-direction: row;
+  
+        & .transparent_button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          color: #2f7ab3;
+          padding-left: 2rem;
+          padding-right: 2rem;
+          font-size: 1.5rem;
+        }
+        & .transparent_button:hover {
+          font-weight: bold;
+        }
       }
     }
   }
 }
 
 @media (max-width: 767px) {
-  .container_login{
-    background-image: url('../../assets/Ingreso_Fondo_Mobile.png');
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    & .welcome_text{
-      margin-bottom: 5rem;
-    }
-
-    & .container_button{
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+  .login {
+  
+    & .bg_special {
+      background-image: url('../../assets/Ingreso_Fondo_Mobile.png');
     }
   }
 }

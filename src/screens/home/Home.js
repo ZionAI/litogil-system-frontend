@@ -4,6 +4,7 @@ import { RiLogoutBoxRFill } from 'react-icons/ri';
 import { BsCheckLg } from 'react-icons/bs';
 import Button from '../../components/Button';
 import './home.css';
+import HeaderLogo from '../../components/HeaderLogo';
 
 export default function Home() {
 
@@ -64,6 +65,15 @@ export default function Home() {
 
   return (
     <div className="container_home">
+      <HeaderLogo redirectLink={'/home'} />
+      <div className='item4'>
+
+      </div>
+    </div>
+  )
+}
+/*
+<div className="container_home">
       <div className='contain_home'>
         <div className='item1_home'>
           <Link to="/">
@@ -171,7 +181,6 @@ export default function Home() {
         <div className='item6'>
           <div className='contain_column_btn_home'>
             <Button className="btn_module_details_home" title="Clientes" onClick={handleClickClientes}/>
-            {/* <Button className="btn_module_details_home" title="Borradores"/> */}
             <Button className="btn_module_details_home" title="Ordenes de trabajo" onClick={handleClickOrdenes}/>
             <Button className="btn_module_details_home" title="Solicitudes pendientes"/>
             <Button className="btn_module_details_home" title="Historial de pedidos"/>
@@ -180,5 +189,4 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
-}
+*/

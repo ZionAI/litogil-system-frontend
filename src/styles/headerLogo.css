@@ -1,20 +1,19 @@
-.header {
+.headerLogo {
     position: absolute;
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 2.5rem;
-    height: 20%;
+    padding: 0.75rem 1.25rem;
+    height: auto;
 
     & .img_logo_lit{
-        width: 50%;
+        width: 5%;
         height: auto;
-        padding-left: 6%;
     }
 }
 
 @media (max-width: 767px) {
-    .header {
+    .headerLogo {
         align-items: center;
         justify-content: center;
         & a {
@@ -24,7 +23,7 @@
             justify-content: center;
 
             & .img_logo_lit{
-                width: 60%;
+                width: 10%;
                 height: auto;
             }
         }
