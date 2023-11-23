@@ -5,6 +5,7 @@ import { BsCheckLg } from 'react-icons/bs';
 import Button from '../../components/Button';
 import './home.css';
 import HeaderLogo from '../../components/HeaderLogo';
+import Menu from '../../components/Menu';
 
 export default function Home() {
 
@@ -65,16 +66,7 @@ export default function Home() {
 
   return (
     <div className="container_home">
-      <HeaderLogo redirectLink={'/home'} />
-      <div className='item4'>
-
-      </div>
-    </div>
-  )
-}
-/*
-<div className="container_home">
-      <div className='contain_home'>
+      {/* <div className='contain_home'>
         <div className='item1_home'>
           <Link to="/">
             <img className="img_homepage_lit" src={require('../../assets/Logo-LG-2.png')} alt="logo_lit_home" />
@@ -188,5 +180,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+      */}
+      <Menu /> 
     </div>
-*/
+  )
+}
+
