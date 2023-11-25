@@ -6,6 +6,8 @@ import Button from '../../components/Button';
 import './home.css';
 import HeaderLogo from '../../components/HeaderLogo';
 import Menu from '../../components/Menu';
+import MenuItems from '../../components/menu/MenuItems';
+import Principal from '../../layout/Principal';
 
 export default function Home() {
 
@@ -65,7 +67,7 @@ export default function Home() {
   }, [ref]);
 
   return (
-    <div className="container_home">
+    <Principal>
       {/* <div className='contain_home'>
         <div className='item1_home'>
           <Link to="/">
@@ -179,10 +181,9 @@ export default function Home() {
             <Button className="btn_module_details_home" title="Modificación de Costos"/>
           </div>
         </div>
-      </div>
-      */}
+      </div> */}
       <Menu /> 
-    </div>
+    </Principal>
   )
 }
 
