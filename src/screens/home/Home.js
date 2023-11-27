@@ -25,10 +25,6 @@ export default function Home() {
     }
   };
 
-  const handleDisplayInfo = () => {
-    setDisplayInfo(!displayInfo);
-  }
-
   return (
     <Principal>
       <div className='principalElement'>
@@ -45,7 +41,7 @@ export default function Home() {
                 </option>
               ))}
           </select>
-          <button className='button' onClick={handleDisplayInfo}><FaCheck className="icon"/></button>
+          <button className='button' onClick={ selectedOption !== '' ? () => navigate('/home/clientes/') : null}><FaCheck className="icon"/></button>
         </div>
         {displayInfo && (
           <div className='data'>
