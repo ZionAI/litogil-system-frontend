@@ -1,73 +1,71 @@
 import React, {useState, useRef, useEffect} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { RiLogoutBoxRFill } from 'react-icons/ri';
+import { FaCheck } from "react-icons/fa";
 import { BsCheckLg } from 'react-icons/bs';
 import Button from '../../components/Button';
 import './home.css';
-import HeaderLogo from '../../components/HeaderLogo';
 import Menu from '../../components/Menu';
-import MenuItems from '../../components/menu/MenuItems';
 import Principal from '../../layout/Principal';
 
 export default function Home() {
+  const options = ['Mattel', 'Spin Master', 'Gamesa'];
+  
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [displayInfo, setDisplayInfo] = useState(false);
 
   const navigate = useNavigate();
 
-  const options = ['Mattel', 'Spin Master', 'Option 3'];
 
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [showElement, setShowElement] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState(false);
-  const [checkElement, setcheckElement] = useState(false)
-  const ref = useRef(null);
-
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  function checkClick(showElement, selectedOption) {
-    navigate('/home/registro-pedido/', {
-      state: { showElement, selectedOption }
-    });
-  }
-
-  function handleClickClientes() {
-    navigate('/home/clientes/');
-  }
-
-  function handleClickOrdenes () {
-    navigate('/home/ordenes-trabajo/')
-  }
-
-  function handleClick() {
-    setShowElement(!showElement);
-    setBackgroundColor(false);
-    setcheckElement(false);
-  }
-
-  const handleDropdownItemClick = (option) => {
-    setSelectedOption(option);
-    setBackgroundColor(true);
-    setcheckElement(true);
-    setShowDropdown(false);
+  const handleSelectOption = (e) => {
+    setSelectedOption(e.target.value);
   };
 
-  const handleDropdownClick = () => {
-    setShowDropdown(!showDropdown);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [ref]);
+  const handleDisplayInfo = () => {
+    setDisplayInfo(!displayInfo);
+  }
 
   return (
     <Principal>
+      <div className='principalElement'>
+        <h2 className='title'>Selecciona un cliente</h2>
+        <h2 className='subtitle'>Cliente</h2>
+        <div className='optionContainer'>
+          <select value={selectedOption} onChange={handleSelectOption} className='selector'>
+              {options.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+          </select>
+          <button className='button' onClick={handleDisplayInfo}><FaCheck className="icon"/></button>
+        </div>
+        {displayInfo && (
+          <div className='data'>
+              <div className='info'>
+                <h3 className='title'>Información fiscal</h3>
+                <h3 className='subtitle'>Nombre o razón social</h3>
+                <h3 className='subtitle'>NIF</h3>
+                <h3 className='subtitle'>RFC</h3>
+              </div>
+              <div className='info'>
+                <h3 className='title'>Dirección</h3>
+                <h3 className='subtitle'>Calle</h3>
+                <h3 className='subtitle'>No. Exterior</h3>
+                <h3 className='subtitle'>No. Interior</h3>
+              </div>
+              <div className='info'>
+                <h3 className='title'>Información fiscal</h3>
+                <h3 className='subtitle'>Teléfono</h3>
+                <h3 className='subtitle'>Correo</h3>
+              </div>
+          </div>
+        )}
+      </div>
+      <Menu /> 
+    </Principal>
+  )
+}
+
       {/* <div className='contain_home'>
         <div className='item1_home'>
           <Link to="/">
@@ -182,8 +180,4 @@ export default function Home() {
           </div>
         </div>
       </div> */}
-      <Menu /> 
-    </Principal>
-  )
-}
 

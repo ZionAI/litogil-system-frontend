@@ -1,0 +1,78 @@
+.principalElement{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+        color: #0e67ab;
+        font-size: 17px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .subtitle {
+        color: #0e67ab;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .optionContainer{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+
+        .selector {
+            min-width: 250px;
+            width: 100%;
+            padding: 5px;
+            border: 2px solid #0e67ab;
+            border-radius: 0.75rem;
+        }
+
+        .button {
+            border: none;
+            background: none;
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            margin: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            background-color: #0e67ab;
+
+            .icon {
+                color: white;
+            }
+        }
+    }
+
+    .data {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        .info {
+            .title {
+                font-size: 14px;
+            }
+            .subtitle{
+                text-decoration: underline;
+                text-transform: capitalize;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+    .principalElement{
+        .data {
+            flex-direction: column;
+        }
+    }
+}

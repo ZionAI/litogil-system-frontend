@@ -1,126 +1,123 @@
-.home{
-    background-image: url('./../assets/Ingreso_Fondo_test.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%; /* Cambiado a 'cover' para cubrir completamente el contenedor */
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-  
-    .container {
-      width: 100vw;
-      height: 100vh;
-    }
-    
-    .top-left {
-      position: absolute;
-      top: 1%;
-      left: 1%;
-  
-      .titulo{
-        color: white;
-        font-weight: 700;
-        font-size: 1.5rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-      }
-  
-      .section{
-        text-transform: capitalize;
-        font-size: 1rem;
-        margin-left: 5px;
-      }
-    }
-    
-    .top-right {
-      position: absolute;
-      top: 1%;
-      right: 1%;
+.principalLayout {
+  background-image: url('./../assets/Ingreso_Fondo_test.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-      .contain_row {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 10;
-
-        .text_home{
-            color: white;
-            font-size: 1em;
-        }
-
-        .icon_logout_home{
-            color: white;
-            font-size: 28px;
-            margin-left: 20px;
-          }
-      }
-    }
-    
-    .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 100px);
-    }
-    
-    .bottom-left {
-      position: absolute;
-      bottom: 1%;
-      left: 1%;
-  
-      .menu {
-        color: black;
-        list-style: none;
-        cursor: pointer; 
-        font-size: 1.10rem;
-      }
-    }
-    
-    .bottom-right {
-      position: absolute;
-      bottom: 1%;
-      right: 1%;
-  
-      .img_zion_home {
-        width: 120px;
-      }
-    }
-    
-  }
   .image_logo {
     width: 5%;
   }
-  
-  @media (max-width: 767px) {
-    .home {
-        background-image: url('./../assets/Ingreso_Fondo_Mobile.png');
-      .image_logo {
-        display: none;
-      }
 
-      .top-left {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        .titulo{
-            color: black;
-        }
-      }
+  .top-left {
+    position: absolute;
+    top: 1%;
+    left: 1%;
 
-      .top-right{
-        display: none;
-      }
+    .titulo{
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
 
-      .bottom-right {
-        display: none;
-      }
-
-      .bottom-left {
-        display: none;
-      }
+    .section{
+      text-transform: capitalize;
+      font-size: 1rem;
+      margin-left: 5px;
     }
   }
+  
+  .top-right {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+
+    .contain_row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10;
+
+      .text_home{
+          color: white;
+          font-size: 1em;
+      }
+
+      .icon_logout_home{
+          color: white;
+          font-size: 28px;
+          margin-left: 20px;
+        }
+    }
+  }
+
+  .center{
+    width: 100%;
+    height: 100%;
+  }
+
+  .bottom-left {
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+
+    .menu {
+      color: black;
+      list-style: none;
+      cursor: pointer; 
+      font-size: 1rem;
+    }
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+
+    .img_zion_home {
+      width: 120px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .principalLayout {
+      background-image: url('./../assets/Ingreso_Fondo_Mobile.png');
+    .image_logo {
+      display: none;
+    }
+
+    .top-left {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      .titulo{
+          color: black;
+      }
+    }
+
+    .top-right{
+      display: none;
+    }
+
+    .bottom-right {
+      display: none;
+    }
+
+    .bottom-left {
+      display: none;
+    }
+  }
+}

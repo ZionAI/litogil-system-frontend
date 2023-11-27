@@ -475,3 +475,38 @@ body {
     background-color: #00d000;
     transform: scale(1.1);
 }
+
+
+@media (max-width: 767px) {
+    .container_clientes {
+        background-image: url('../../assets/Ingreso_Fondo_Mobile.png');
+        background-color: white;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+
+        .contain_clientes .item1_clientes,
+        .contain_clientes .item3_clientes,
+        .contain_clientes .item4_clientes,
+        .contain_clientes .item5_clientes,
+        .contain_clientes .item6_clientes {
+            display: none;
+        }
+
+        .contain_clientes .item7_clientes {
+            grid-column: 3 / 4; 
+            grid-row: 2 / 3;
+        }
+
+        .contain_clientes .item2_clientes {
+            margin-top: 60%;
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+        }
+
+        .dropdown {
+            width: 100%;
+        }
+    }
+  }
