@@ -10,14 +10,19 @@ import Principal from '../../layout/Principal';
 export default function Home() {
   const options = ['Mattel', 'Spin Master', 'Gamesa'];
   
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState('');
   const [displayInfo, setDisplayInfo] = useState(false);
 
   const navigate = useNavigate();
 
 
   const handleSelectOption = (e) => {
-    setSelectedOption(e.target.value);
+    if(e.target.value === 'Selecciona una opción'){
+      setDisplayInfo(false);
+    } else {
+      setSelectedOption(e.target.value);
+      setDisplayInfo(true);
+    }
   };
 
   const handleDisplayInfo = () => {
@@ -31,6 +36,9 @@ export default function Home() {
         <h2 className='subtitle'>Cliente</h2>
         <div className='optionContainer'>
           <select value={selectedOption} onChange={handleSelectOption} className='selector'>
+                <option>
+                  Selecciona una opción
+                </option>
               {options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}
@@ -44,19 +52,47 @@ export default function Home() {
               <div className='info'>
                 <h3 className='title'>Información fiscal</h3>
                 <h3 className='subtitle'>Nombre o razón social</h3>
+                <p>Mattel&trade;</p>
                 <h3 className='subtitle'>NIF</h3>
+                <p>XAXX0101101000</p>
                 <h3 className='subtitle'>RFC</h3>
+                <p>ABC00101XY1</p>
               </div>
+              <div className='separator'></div>
               <div className='info'>
                 <h3 className='title'>Dirección</h3>
-                <h3 className='subtitle'>Calle</h3>
-                <h3 className='subtitle'>No. Exterior</h3>
-                <h3 className='subtitle'>No. Interior</h3>
+                <div className='columns'>
+                 <div>
+                    <h3 className='subtitle'>Calle</h3>
+                    <p>Av. Juguetes Cool</p>
+                    <h3 className='subtitle'>No. Exterior</h3>
+                    <p>1000</p>
+                    <h3 className='subtitle'>No. Interior</h3>
+                    <p>101</p>
+                 </div> 
+                 <div>
+                    <h3 className='subtitle'>Colonia</h3>
+                    <p>San Miguel Chapultepec</p>
+                    <h3 className='subtitle'>C.P.</h3>
+                    <p>52140</p>
+                    <h3 className='subtitle'>Delegacion/Municipio</h3>
+                    <p>Miguel Hidalgo</p>
+                 </div> 
+                 <div>
+                    <h3 className='subtitle'>Estado</h3>
+                    <p>Ciudad de Mexico</p>
+                    <h3 className='subtitle'>Ciudad</h3>
+                    <p>Mexico</p>
+                 </div> 
+                </div>
               </div>
+              <div className='separator'></div>
               <div className='info'>
                 <h3 className='title'>Información fiscal</h3>
                 <h3 className='subtitle'>Teléfono</h3>
+                <p>55 5555 5555</p>
                 <h3 className='subtitle'>Correo</h3>
+                <p>matel@matel.com</p>
               </div>
           </div>
         )}

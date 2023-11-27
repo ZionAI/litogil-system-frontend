@@ -56,14 +56,32 @@
         gap: 2rem;
 
         .info {
+            .columns{
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+                align-items: center;
+                justify-content: center;
+            }
             .title {
                 font-size: 14px;
             }
-            .subtitle{
+            .subtitle {
                 text-decoration: underline;
                 text-transform: capitalize;
                 font-size: 12px;
             }
+
+            & p {
+                color: black;
+                font-size: 12px;
+            }
+        }
+
+        .separator{
+            width: 0.5px;
+            height: 100%;
+            background-color: #0e67ab;
         }
     }
 }
@@ -73,6 +91,10 @@
     .principalElement{
         .data {
             flex-direction: column;
+
+            .separator{
+                display: none;
+            }
         }
     }
 }
