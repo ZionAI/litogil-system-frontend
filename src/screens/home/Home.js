@@ -9,8 +9,77 @@ import Principal from '../../layout/Principal';
 
 export default function Home() {
   const options = ['Mattel', 'Spin Master', 'Gamesa'];
+
+  const mockupData = {
+    'Mattel': {
+      fiscalInfo: {
+        name: 'Mattel™',
+        NIF: 'XAXX0101101000',
+        RFC: 'ABC00101XY1'
+      },
+      address: {
+        street: 'Av. Juguetes Felices',
+        exteriorNumber: '123',
+        interiorNumber: '10',
+        colony: 'Centro',
+        postalCode: '11111',
+        municipality: 'Cuauhtémoc',
+        state: 'Ciudad de México',
+        city: 'México'
+      },
+      contactInfo: {
+        phone: '55 1111 1111',
+        email: 'contacto@mattel.com'
+      }
+    },
+    'Spin Master': {
+      fiscalInfo: {
+        name: 'Spin Master™',
+        NIF: 'XAXX0202202000',
+        RFC: 'DEF00202ZW2'
+      },
+      address: {
+        street: 'Calle de los Juegos Divertidos',
+        exteriorNumber: '456',
+        interiorNumber: '20A',
+        colony: 'Reforma',
+        postalCode: '22222',
+        municipality: 'Benito Juárez',
+        state: 'Ciudad de México',
+        city: 'México'
+      },
+      contactInfo: {
+        phone: '55 2222 2222',
+        email: 'info@spinmaster.com'
+      }
+    },
+    'Gamesa': {
+      fiscalInfo: {
+        name: 'Gamesa™',
+        NIF: 'XAXX0303303000',
+        RFC: 'GHI00303UV3'
+      },
+      address: {
+        street: 'Av. de los Juegos Educativos',
+        exteriorNumber: '789',
+        interiorNumber: '30B',
+        colony: 'Polanco',
+        postalCode: '33333',
+        municipality: 'Miguel Hidalgo',
+        state: 'Ciudad de México',
+        city: 'México'
+      },
+      contactInfo: {
+        phone: '55 3333 3333',
+        email: 'info@gamesa.com'
+      }
+    }
+  };
+  
+  
   
   const [selectedOption, setSelectedOption] = useState('');
+  const [companyInfo, setCompanyInfo] = useState({});
   const [displayInfo, setDisplayInfo] = useState(false);
 
   const navigate = useNavigate();
@@ -18,9 +87,12 @@ export default function Home() {
 
   const handleSelectOption = (e) => {
     if(e.target.value === 'Selecciona una opción'){
+      setSelectedOption('Selecciona una opción');
+      setCompanyInfo({})
       setDisplayInfo(false);
     } else {
       setSelectedOption(e.target.value);
+      setCompanyInfo(mockupData[e.target.value])
       setDisplayInfo(true);
     }
   };
@@ -43,16 +115,16 @@ export default function Home() {
           </select>
           <button className='button' onClick={ selectedOption !== '' ? () => navigate('/home/clientes/') : null}><FaCheck className="icon"/></button>
         </div>
-        {displayInfo && (
+        {displayInfo &&  companyInfo && (
           <div className='data'>
               <div className='info'>
                 <h3 className='title'>Información fiscal</h3>
                 <h3 className='subtitle'>Nombre o razón social</h3>
-                <p>Mattel&trade;</p>
+                <p>{companyInfo.fiscalInfo.name}&trade;</p>
                 <h3 className='subtitle'>NIF</h3>
-                <p>XAXX0101101000</p>
+                <p>{companyInfo.fiscalInfo.NIF}</p>
                 <h3 className='subtitle'>RFC</h3>
-                <p>ABC00101XY1</p>
+                <p>{companyInfo.fiscalInfo.RFC}</p>
               </div>
               <div className='separator'></div>
               <div className='info'>
@@ -60,25 +132,25 @@ export default function Home() {
                 <div className='columns'>
                  <div>
                     <h3 className='subtitle'>Calle</h3>
-                    <p>Av. Juguetes Cool</p>
+                    <p>{companyInfo.address.street}</p>
                     <h3 className='subtitle'>No. Exterior</h3>
-                    <p>1000</p>
+                    <p>{companyInfo.address.exteriorNumber}</p>
                     <h3 className='subtitle'>No. Interior</h3>
-                    <p>101</p>
+                    <p>{companyInfo.address.interiorNumber}</p>
                  </div> 
                  <div>
                     <h3 className='subtitle'>Colonia</h3>
-                    <p>San Miguel Chapultepec</p>
+                    <p>{companyInfo.address.colony}</p>
                     <h3 className='subtitle'>C.P.</h3>
-                    <p>52140</p>
+                    <p>{companyInfo.address.postalCode}</p>
                     <h3 className='subtitle'>Delegacion/Municipio</h3>
-                    <p>Miguel Hidalgo</p>
+                    <p>{companyInfo.address.municipality}</p>
                  </div> 
                  <div>
                     <h3 className='subtitle'>Estado</h3>
-                    <p>Ciudad de Mexico</p>
+                    <p>{companyInfo.address.state}</p>
                     <h3 className='subtitle'>Ciudad</h3>
-                    <p>Mexico</p>
+                    <p>{companyInfo.address.city}</p>
                  </div> 
                 </div>
               </div>
@@ -86,9 +158,9 @@ export default function Home() {
               <div className='info'>
                 <h3 className='title'>Información fiscal</h3>
                 <h3 className='subtitle'>Teléfono</h3>
-                <p>55 5555 5555</p>
+                <p>{companyInfo.contactInfo.phone}</p>
                 <h3 className='subtitle'>Correo</h3>
-                <p>matel@matel.com</p>
+                <p>{companyInfo.contactInfo.email}</p>
               </div>
           </div>
         )}
