@@ -1,70 +1,104 @@
 import React, {useState, useRef, useEffect} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { RiLogoutBoxRFill } from 'react-icons/ri';
+import { FaCheck } from "react-icons/fa";
 import { BsCheckLg } from 'react-icons/bs';
 import Button from '../../components/Button';
 import './home.css';
+import Menu from '../../components/Menu';
+import Principal from '../../layout/Principal';
 
 export default function Home() {
+  const options = ['Mattel', 'Spin Master', 'Gamesa'];
+  
+  const [selectedOption, setSelectedOption] = useState('');
+  const [displayInfo, setDisplayInfo] = useState(false);
 
   const navigate = useNavigate();
 
-  const options = ['Mattel', 'Spin Master', 'Option 3'];
 
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [showElement, setShowElement] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState(false);
-  const [checkElement, setcheckElement] = useState(false)
-  const ref = useRef(null);
-
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  function checkClick(showElement, selectedOption) {
-    navigate('/home/registro-pedido/', {
-      state: { showElement, selectedOption }
-    });
-  }
-
-  function handleClickClientes() {
-    navigate('/home/clientes/');
-  }
-
-  function handleClickOrdenes () {
-    navigate('/home/ordenes-trabajo/')
-  }
-
-  function handleClick() {
-    setShowElement(!showElement);
-    setBackgroundColor(false);
-    setcheckElement(false);
-  }
-
-  const handleDropdownItemClick = (option) => {
-    setSelectedOption(option);
-    setBackgroundColor(true);
-    setcheckElement(true);
-    setShowDropdown(false);
+  const handleSelectOption = (e) => {
+    if(e.target.value === 'Selecciona una opción'){
+      setDisplayInfo(false);
+    } else {
+      setSelectedOption(e.target.value);
+      setDisplayInfo(true);
+    }
   };
-
-  const handleDropdownClick = () => {
-    setShowDropdown(!showDropdown);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [ref]);
 
   return (
-    <div className="container_home">
-      <div className='contain_home'>
+    <Principal>
+      <div className='principalElement'>
+        <h2 className='title'>Selecciona un cliente</h2>
+        <h2 className='subtitle'>Cliente</h2>
+        <div className='optionContainer'>
+          <select value={selectedOption} onChange={handleSelectOption} className='selector'>
+                <option>
+                  Selecciona una opción
+                </option>
+              {options.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+          </select>
+          <button className='button' onClick={ selectedOption !== '' ? () => navigate('/home/clientes/') : null}><FaCheck className="icon"/></button>
+        </div>
+        {displayInfo && (
+          <div className='data'>
+              <div className='info'>
+                <h3 className='title'>Información fiscal</h3>
+                <h3 className='subtitle'>Nombre o razón social</h3>
+                <p>Mattel&trade;</p>
+                <h3 className='subtitle'>NIF</h3>
+                <p>XAXX0101101000</p>
+                <h3 className='subtitle'>RFC</h3>
+                <p>ABC00101XY1</p>
+              </div>
+              <div className='separator'></div>
+              <div className='info'>
+                <h3 className='title'>Dirección</h3>
+                <div className='columns'>
+                 <div>
+                    <h3 className='subtitle'>Calle</h3>
+                    <p>Av. Juguetes Cool</p>
+                    <h3 className='subtitle'>No. Exterior</h3>
+                    <p>1000</p>
+                    <h3 className='subtitle'>No. Interior</h3>
+                    <p>101</p>
+                 </div> 
+                 <div>
+                    <h3 className='subtitle'>Colonia</h3>
+                    <p>San Miguel Chapultepec</p>
+                    <h3 className='subtitle'>C.P.</h3>
+                    <p>52140</p>
+                    <h3 className='subtitle'>Delegacion/Municipio</h3>
+                    <p>Miguel Hidalgo</p>
+                 </div> 
+                 <div>
+                    <h3 className='subtitle'>Estado</h3>
+                    <p>Ciudad de Mexico</p>
+                    <h3 className='subtitle'>Ciudad</h3>
+                    <p>Mexico</p>
+                 </div> 
+                </div>
+              </div>
+              <div className='separator'></div>
+              <div className='info'>
+                <h3 className='title'>Información fiscal</h3>
+                <h3 className='subtitle'>Teléfono</h3>
+                <p>55 5555 5555</p>
+                <h3 className='subtitle'>Correo</h3>
+                <p>matel@matel.com</p>
+              </div>
+          </div>
+        )}
+      </div>
+      <Menu /> 
+    </Principal>
+  )
+}
+
+      {/* <div className='contain_home'>
         <div className='item1_home'>
           <Link to="/">
             <img className="img_homepage_lit" src={require('../../assets/Logo-LG-2.png')} alt="logo_lit_home" />
@@ -171,14 +205,11 @@ export default function Home() {
         <div className='item6'>
           <div className='contain_column_btn_home'>
             <Button className="btn_module_details_home" title="Clientes" onClick={handleClickClientes}/>
-            {/* <Button className="btn_module_details_home" title="Borradores"/> */}
             <Button className="btn_module_details_home" title="Ordenes de trabajo" onClick={handleClickOrdenes}/>
             <Button className="btn_module_details_home" title="Solicitudes pendientes"/>
             <Button className="btn_module_details_home" title="Historial de pedidos"/>
             <Button className="btn_module_details_home" title="Modificación de Costos"/>
           </div>
         </div>
-      </div>
-    </div>
-  )
-}
+      </div> */}
+

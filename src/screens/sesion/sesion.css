@@ -11,6 +11,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
 
         & .container_sesion_title{
             display: inline-flex;
@@ -112,7 +113,7 @@
         background-image: url('../../assets/Inicio_Fondo_Mobile.png');
 
         & .wrapper {
-            height: 60%;
+            height: 100%;
         }
     }
   }

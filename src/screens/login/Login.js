@@ -2,9 +2,8 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import Button from '../../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './login.css';
-import Header from '../../components/Header';
 
 export default function Login() {
 
@@ -24,17 +23,22 @@ export default function Login() {
   };
 
   return (
-    <div className="container_login">
+    <div className='login'>
       <ToastContainer />
-      <Header redirectLink={'/'} />
-      <div className="welcome">
-        <h1 className="welcome_text">Bienvenido</h1>
-        <div className='container_button'>
-          <Button className="transparent_button" title="Inicia sesión" onClick={handleLoginClick}/>
-          <Button className="transparent_button_regis" title="Registro" onClick={handleRegistroClick}/>
+      <div className='bg_special'>
+        <div className='header'>
+          <Link to={'/'}>
+              <img className="img_logo_lit" src={require('../../assets/logo_lito_noBackground.png')} alt="logo_lit" />
+          </Link>
+        </div>
+        <div className='container'>
+          <h2>Bienvenido</h2>
+          <div className='button_container'>
+            <Button className='transparent_button' title='Inicio de Sesion' onClick={handleLoginClick} />
+            <Button className='transparent_button' title='Registro' onClick={handleRegistroClick} />
+          </div>
         </div>
       </div>
-    </div>
+    </div>  
   )
 }
-

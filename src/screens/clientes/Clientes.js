@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Menu from '../../components/Menu'
 
 
 export default function Clientes() {
@@ -925,16 +926,17 @@ export default function Clientes() {
                 <img className="img_zion_clientes" src={require('../../assets/PoweredByZion.png')} alt="logo_zion" />
                 </div>
                 <div className='item6_clientes'>
-                <div className='contain_column_btn'>
-                    <Button className="btn_module_details_clientes" title="Clientes"/>
-                    <Button className="btn_module_details" title="Borradores"/>
-                    <Button className="btn_module_details" title="Solicitudes pendientes"/>
-                    <Button className="btn_module_details" title="Historial de pedidos"/>
-                    <Button className="btn_module_details" title="Modificación de Costos"/>
-                </div>
+                    <div className='contain_column_btn'>
+                        <Button className="btn_module_details_clientes" title="Clientes"/>
+                        <Button className="btn_module_details" title="Borradores"/>
+                        <Button className="btn_module_details" title="Solicitudes pendientes"/>
+                        <Button className="btn_module_details" title="Historial de pedidos"/>
+                        <Button className="btn_module_details" title="Modificación de Costos"/>
+                    </div>
                 </div>
             </div>
             <ToastContainer />
+            <Menu />
         </div>
     )
 }
