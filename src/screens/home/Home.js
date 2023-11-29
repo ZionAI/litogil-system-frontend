@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <Principal>
+    <Principal text={'BOM(Bill of materials)'}> 
       <div className='principalElement'>
         <h2 className='title'>Selecciona un cliente</h2>
         <h2 className='subtitle'>Cliente</h2>

@@ -6,3 +6,27 @@ body{
 .image_bg_orden {
     background-color: white;
 }
+
+
+.orderContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    .orderContent {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .orderContainer {
+        
+        .orderContent {
+            width: 100%;
+        }
+    }
+}

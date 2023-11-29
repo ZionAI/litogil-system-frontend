@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
-import MenuItems from './menu/MenuItems';
+import MenuItems from './MenuItems';
 import './../styles/menu.css';
 
 const Menu = () => {
