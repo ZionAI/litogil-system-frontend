@@ -1,36 +1,189 @@
 .principalLayout {
-  background-image: url('./../assets/Ingreso_Fondo_test.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-color: white;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: relative;
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    z-index: -1;
+
+    .column {
+      width: 100%;
+      height: calc(100% / 15);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .primeraFilaIzquierda {
+          width: 18%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(65,144,205), rgb(59, 130, 213));
+          border-radius: 0 999px 999px 0;
+      }
+      .primeraFilaDerecha {
+          width: 18%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(90,183,249), rgb(88, 193, 249));
+          border-radius: 999px 0 0 999px;
+      }
+
+      .segundaFila {
+          width: 8%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(59, 140, 213), rgb(51,110,224));
+          border-radius: 0 -999px -999px 0;
+
+          .bola {
+              position: realtive;
+              right: 0;
+              margin-left: 79%;
+              width: 100%;
+              height: 100%;
+              border-radius: 999px;
+              background-color: white;
+          }
+      }
+      .segundaFilaDerecha {
+          width: 4%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(90,183,249), rgb(88, 193, 249));
+          border-radius: 0 0 0 999px;
+      }
+
+      .tercerFila {
+          width: 12%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(112,240,247), rgb(95,205,245));
+          border-radius: 0 999px 999px 0;
+      }
+
+      /* rgb(112,240,247), rgb(78,169,245) */
+      
+      .cuartaFila {
+          width: 3%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(127,206,246), rgb(88,191,246));
+          border-radius: 0 -999px -999px 0;
+          
+          .bola {
+              position: realtive;
+              right: 0;
+              margin-left: 48%;
+              width: 140%;
+              height: 100%;
+              border-radius: 999px;
+              background-color: white;
+          }
+      }
+      
+      .quintaFila {
+          width: 7%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(93,201,245), rgb(83,179,245));
+          border-radius: 0 40px 0 0;
+      }
+      .sextaFila {
+          width: 10%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(115,188,240), rgb(78,169,245));
+          border-radius: 0 999px 999px 0;
+      }
+      .septimaFila {
+          width: 5%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(55,123,217), rgb(60,133,212));
+          border-radius: 0 999px 999px 0;
+      }
+      .decimaFila{
+          width: 5%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(44,88,237), rgb(46,96,232));
+          border-radius: 0 999px 999px 0;
+      }
+      .docevaFila{
+          width: 11%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(68,151,208), rgb(71, 158, 198));
+          border-radius: 0 999px 999px 0;
+      }
+      .treceavaFila{
+          width: 38%;
+          height: 100%;
+          background-color: rgb(90, 183, 249);
+          border-radius: 0 999px 999px 0;
+
+          .bola {
+              position: realtive;
+              right: 0;
+              margin-left: 20%;
+              width: 140%;
+              height: 100%;
+              border-radius: 999px;
+              background-color: white;
+          }
+      }
+
+      .catorceabaFila {
+          width: 14%;
+          height: 100%;
+          background-color: rgb(90, 183, 249);
+          border-radius: 0 999px 999px 0;
+      }
+      .catorceabaFilaDerecha {
+          width: 3%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(63,140,207), rgb(64, 143, 206));
+          border-radius: 120% 0 0 0;
+      }
+      .quinceabaFila {
+          width: 12%;
+          height: 100%;
+          background-color: rgb(90, 183, 249);
+          border-bottom-right-radius: 50px;
+      }
+     
+      .quinceabaFilaDerecha {
+          width: 14%;
+          height: 100%;
+          background: linear-gradient(to bottom left, rgb(63,140,207), rgb(71, 158, 298));
+          border-radius: 999px 0 0 999px;
+      } 
+  }
+  }
 
   .image_logo {
     width: 5%;
-  }
-
-  .top-left {
+    height: auto;
     position: absolute;
     top: 1%;
     left: 1%;
+  }
+
+  .top-left {
 
     .titulo{
       color: white;
       font-weight: 700;
       font-size: 1.5rem;
-      margin-top: 1.75rem;
-      margin-bottom: 2rem;
+      position: absolute;
+      top: 15%;
+      left: 1%;
     }
 
     .section{
       text-transform: capitalize;
       font-size: 1rem;
-      margin-left: 5px;
+      position: absolute;
+      top: 22%;
+      left: 3%;
     }
   }
   
@@ -67,19 +220,32 @@
 
   .bottom-left {
     position: absolute;
-    bottom: 1%;
-    left: 1%;
+    bottom: -10px;
+    left: -80px;
 
     .menu {
       color: black;
-      list-style: none;
       cursor: pointer; 
       font-size: 12px;
-       
+      list-style: none;
+      display: flex;
+      font-weight: 700;
+        color: white;
+      flex-direction: column;
+
+      li {
+        min-width: 180px;
+        width: fit-content;
+        padding: 5px 3rem;
+        padding-left: 5rem;
+        border-radius: 0 999px 999px 0;
+      }
 
       & :hover{
         font-weight: 700;
         color: white;
+        background: linear-gradient(to bottom left, rgb(84, 163, 233), rgb(51, 120, 177));
+        scale: 1.1;
       }
     }
   }
@@ -98,6 +264,12 @@
 @media (max-width: 767px) {
   .principalLayout {
       background-image: url('./../assets/Ingreso_Fondo_Mobile.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-color: white;
+    .background {
+      display: none;
+    }
     .image_logo {
       display: none;
     }
